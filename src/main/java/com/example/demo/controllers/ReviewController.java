@@ -29,6 +29,9 @@ public class ReviewController {
         }
     }
 
+
+
+
     @GetMapping("/recipe/{recipeId}")
     public ResponseEntity<?> getReviewByRecipeId(@PathVariable("recipeId") Long recipeId) {
         try {
@@ -38,6 +41,19 @@ public class ReviewController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+//    //return average rating
+//    @GetMapping("/{id}/average")
+//    public ResponseEntity<?> getReviewAverageById(@PathVariable("recipeId") Long recipeId) {
+//        try {
+//            ArrayList<Review> reviews = reviewService.getReviewByRecipeId(recipeId);
+//            return ResponseEntity.ok(reviews);
+//        } catch (NoSuchRecipeException | NoSuchReviewException e) {
+//            return ResponseEntity.badRequest().body(e.getMessage());
+//        }
+//
+//    }
+
 
     @GetMapping("/user/{username}")
     public ResponseEntity<?> getReviewByUsername(@PathVariable("username") String username) {
@@ -78,4 +94,8 @@ public class ReviewController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+
+
+
 }

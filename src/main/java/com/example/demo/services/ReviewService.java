@@ -30,6 +30,7 @@ public class ReviewService {
         return review.get();
     }
 
+
     public ArrayList<Review> getReviewByRecipeId(Long recipeId) throws NoSuchRecipeException, NoSuchReviewException {
         Recipe recipe = recipeService.getRecipeById(recipeId);
 
@@ -40,6 +41,20 @@ public class ReviewService {
         }
         return reviews;
     }
+
+//    //get average rating by recipeId
+//    public ArrayList<Review> getAverageRatingById(Long recipeId) throws NoSuchReviewException {
+//
+//        ArrayList<Review> reviews;
+//        reviews = getReviewByRecipeId(recipeId);
+//        Optional<Review> review = reviewRepo.findById(id);
+//
+//        if (review.isEmpty()) {
+//            throw new NoSuchReviewException("The review with ID " + id + " could not be found.");
+//        }
+//        return review.get();
+//    }
+
 
     public ArrayList<Review> getReviewByUsername(String username) throws NoSuchReviewException {
         ArrayList<Review> reviews = reviewRepo.findByUsername(username);
