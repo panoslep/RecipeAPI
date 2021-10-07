@@ -26,6 +26,9 @@ public class Recipe {
     private String name;
 
     @Column(nullable = false)
+    private String username;
+
+    @Column(nullable = false)
     private Integer minutesToMake;
 
     @Column(nullable = false)
@@ -33,7 +36,7 @@ public class Recipe {
 
     //Add average rating
     @Column(nullable = false)
-    private Integer averageRating;
+    private Double averageRating;
 
 
     @OneToMany(cascade = CascadeType.ALL)

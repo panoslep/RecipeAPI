@@ -31,16 +31,32 @@ public class RecipeController {
     public ResponseEntity<?> getRecipeById(@PathVariable("id") Long id) {
         try {
             Recipe recipe = recipeService.getRecipeById(id);
+            updateRecipe(recipe);
             return ResponseEntity.ok(recipe);
         } catch (NoSuchRecipeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 
+    @GetMapping("/score/{rating}")
+    public ResponseEntity<?> getRecipeByRating(@PathVariable("rating") Double rating) {
+        try {
+            ArrayList<Recipe> recipes = recipeService.getRecipesByRating(rating);
+            return ResponseEntity.ok(recipes);
+        } catch (NoSuchRecipeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+
     @GetMapping
     public ResponseEntity<?> getAllRecipes() {
         try {
-            return ResponseEntity.ok(recipeService.getAllRecipes());
+            ArrayList<Recipe> recipes = recipeService.getAllRecipes();
+            for (Recipe temp : recipes) {
+                updateRecipe(temp);
+            }
+            return ResponseEntity.ok(recipes);
         } catch (NoSuchRecipeException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }

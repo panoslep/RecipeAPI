@@ -1,14 +1,14 @@
-package com.example.demo.repositories;
-
-import com.example.demo.models.Rating;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
-
-import java.util.ArrayList;
-
-//@Repository
-//public interface RatingRepo extends JpaRepository<Rating, Long> {
+//package com.example.demo.repositories;
 //
-//    ArrayList<Rating> findByRecipeId(Long recipeId);
+//import com.example.demo.models.Rating;
+//import org.springframework.data.jpa.repository.JpaRepository;
+//import org.springframework.stereotype.Repository;
 //
-//}
+//import java.util.ArrayList;
+//
+////@Repository
+////public interface RatingRepo extends JpaRepository<Rating, Long> {
+////
+////    ArrayList<Rating> findByRecipeId(Long recipeId);
+////
+////}
