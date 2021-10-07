@@ -48,6 +48,17 @@ public class RecipeController {
         }
     }
 
+    @GetMapping("/user/{username}")
+    public ResponseEntity<?> getRecipeByUsername(@PathVariable("username") String username) {
+        try {
+            ArrayList<Recipe> recipes = recipeService.getRecipesByUsername(username);
+            return ResponseEntity.ok(recipes);
+        } catch (NoSuchRecipeException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+
 
     @GetMapping
     public ResponseEntity<?> getAllRecipes() {

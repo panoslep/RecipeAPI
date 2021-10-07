@@ -94,6 +94,22 @@ public class RecipeService {
         return recipes;
     }
 
+    public  ArrayList<Recipe> getRecipesByUsername(String username) throws NoSuchRecipeException {
+        ArrayList<Recipe> recipes = new ArrayList<>(recipeRepo.findAll());
+        ArrayList<Recipe> returnedRecipes = new ArrayList<>();
+        for (Recipe temp : recipes) {
+            if (temp.getUsername().matches(username)) {
+                returnedRecipes.add(temp);
+            }
+
+        }
+
+        if (recipes.isEmpty()) {
+            throw new NoSuchRecipeException("There are no recipes with this rating");
+        }
+        return returnedRecipes;
+    }
+
 
     @Transactional
     public Recipe deleteRecipeById(Long id) throws NoSuchRecipeException {
