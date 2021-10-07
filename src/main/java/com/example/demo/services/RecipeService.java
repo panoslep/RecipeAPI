@@ -32,6 +32,7 @@ public class RecipeService {
         }
 
         Recipe recipe = recipeOptional.get();
+
         recipe.generateLocationURI();
         return recipe;
     }
@@ -48,6 +49,20 @@ public class RecipeService {
         }
         return matchingRecipes;
     }
+
+    public ArrayList<Recipe> getRecipesByaverageRating(int averageRating) throws NoSuchRecipeException {
+        ArrayList<Recipe> matchingRecipes = recipeRepo.findByNameContaining(name);
+
+        if (matchingRecipes.isEmpty()) {
+            throw new NoSuchRecipeException("No recipes could be found with that rating.");
+        }
+
+        for (Recipe r : matchingRecipes) {
+            r.generateLocationURI();
+        }
+        return matchingRecipes;
+    }
+
 
     public ArrayList<Recipe> getAllRecipes() throws NoSuchRecipeException {
         ArrayList<Recipe> recipes = new ArrayList<>(recipeRepo.findAll());

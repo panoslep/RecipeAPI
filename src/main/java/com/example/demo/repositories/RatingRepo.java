@@ -6,9 +6,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 
-@Repository
-public interface RatingRepo extends JpaRepository<Rating, Long> {
-
-    ArrayList<Rating> rating = findByRecipeId(Long recipeId);
-
-}
+//@Repository
+//public interface RatingRepo extends JpaRepository<Rating, Long> {
+//
+//    ArrayList<Rating> findByRecipeId(Long recipeId);
+//
+//}

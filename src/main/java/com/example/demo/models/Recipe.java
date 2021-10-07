@@ -31,6 +31,11 @@ public class Recipe {
     @Column(nullable = false)
     private Integer difficultyRating;
 
+    //Add average rating
+    @Column(nullable = false)
+    private Integer averageRating;
+
+
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "recipeId", nullable = false, foreignKey = @ForeignKey)
     private Collection<Ingredient> ingredients = new ArrayList<>();
@@ -42,6 +47,10 @@ public class Recipe {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "recipeId", nullable = false, foreignKey = @ForeignKey)
     private Collection<Review> reviews;
+
+//   // @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "recipeId", nullable = false, foreignKey = @ForeignKey)
+//    private Collection<Rating> avRatings;
 
     @Transient
     @JsonIgnore

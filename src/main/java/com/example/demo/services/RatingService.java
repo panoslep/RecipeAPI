@@ -8,9 +8,16 @@ import org.springframework.stereotype.Service;
 public class RatingService {
 
 
+ //   @Autowired
+ //   RetingRepo ratingRepo;
+
     @Autowired
-    ReviewRepo reviewRepo;
+    ReviewService reviewService;
 
     @Autowired
     RecipeService recipeService;
+
+
+
+
 }
