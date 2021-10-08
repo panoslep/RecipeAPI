@@ -46,4 +46,14 @@ public class Review {
         this.rating = rating;
     }
 
+    public void setUsername(String username, Recipe recipe) {
+
+
+        if (username.equals(recipe.getUsername())) {
+            throw new IllegalStateException("You can't review your own recipe!");
+        }
+        this.username = username;
+    }
+    
+
 }
