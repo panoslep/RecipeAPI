@@ -35,7 +35,7 @@ public class Recipe {
     private Integer difficultyRating;
 
     //Add average rating
-    @Column(nullable = false)
+    @Column
     private Double averageRating;
 
 

@@ -69,7 +69,7 @@ public class ReviewService {
     public Recipe postNewReview(Review review, Long recipeId) throws NoSuchRecipeException {
         Recipe recipe = recipeService.getRecipeById(recipeId);
         recipe.getReviews().add(review);
-//        recipeService.updateRecipe(recipe, false);
+        recipeService.updateRecipe(recipe, false);
         return recipe;
     }
 
